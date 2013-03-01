@@ -1,0 +1,13 @@
+# github-jenkins-trigger
+
+this clojure project listens on *:3838 for json posts from github webhooks, parses out the repository and branch name, and then runs a system call to the jenkins-cli to fire up the build with the following naming convention:
+
+repo-branch
+if branch is f/newfeat then
+repo-f-newfeat
+
+# build
+lein uberjar
+
+# run
+java -jar github-jenkins-trigger-0.1.0-standalone.jar http://JENKINS_URL:PORT/
