@@ -1,5 +1,0 @@
-#!/bin/sh
-sv start /service/jenkins || exit 1
-cd /service/github-listener
-exec 2>&1
-exec chpst -ujenkins java -jar github-jenkins-trigger-0.1.0-standalone.jar http://jenkins:8086/
