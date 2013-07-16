@@ -17,7 +17,7 @@
                 (clojure.string/replace (get github_map :ref) #"^refs/heads/" "")
                 #"/" "-"))
   (println (str "attempting to build " repo "-" branch " @ jenkins host " @the-url))
-  (sh "/usr/bin/java" "-jar" "/service/jenkins/bin/jenkins-cli.jar" "-s" @the-url "build" (str repo "-" branch))
+  (sh "/usr/bin/java" "-jar" "/content/jenkins/jenkins-cli.jar" "-s" @the-url "build" (str repo "-" branch))
   {:status 200
   :headers {"Content-Type" "text/html"}
   :body (str repo "\n" branch) })
